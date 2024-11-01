@@ -66,7 +66,6 @@ def main():
     plt.legend()
     plt.title("Launch Angle from Vertical vs the Fraction of Earth's Radius Alpha")
     plt.savefig('Launch Angle vs Alpha')
-    plt.show()
     
     #-------------------------------------------------------------------------------------------------------------------------------
     # alpha = 0.25
@@ -108,7 +107,6 @@ def main():
     plt.legend()
     plt.title("Launch Angle from Vertical vs the Escape Velocity to Initial Velocity Ratio")
     plt.savefig('Launch Angle Velocity Ratio')
-    plt.show()
     
     #-------------------------------------------------------------------------------------------------------------------------------
     #Error propagation of equation (17)
