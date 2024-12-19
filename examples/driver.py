@@ -1,28 +1,27 @@
 import numpy
-from Lab01.functions import launch_angle_range
+from Lab01.functions import launch_angle_range , launch_angle
 from Lab01.tests import *
 import matplotlib.pyplot as plt
 
-'''
+
+
 def main():
-    test_root_max(2.0, 0.25, 0.02)
-    test_root_min(2.0, 0.25, 0.02)
-    test_arcsin_max(2.0, 0.25, 0.02)
-    test_arcsin_min(2.0, 0.25, 0.02)
-    test_alpha_min(2.0, 0.25)
-    test_alpha_max(2.0, 0.25)
-    test_vel_min(2.0, 0.25)
-    test_vel_max(2.0, 0.25)
-    if True:
-        return launch_angle_range(2.0, 0.25, 0.02)
+    #ve_v0 = 2.0
+    #alpha = 0.25
+    #tol_alpha = 0.02
+    investi_1 = launch_angle_range(2.0, 0.25, 0.02)
+
+    #confirm results
+    alp_min = (1 + 0.02) * 0.25
+    x_min = launch_angle(2.0, alp_min)        
+    phi_min = numpy.arcsin(x_min)
+
+    alp_max = (1 - 0.02) * 0.25
+    x_max = launch_angle(2.0, alp_max)         
+    phi_max = numpy.arcsin(x_max)
     
-if __name__ == "__main__":
-    print(main())
-'''
-
-
-
-def main():
+    phi_range = numpy.array([phi_min, phi_max])
+    print(f'The result is {investi_1} while the expected result is {phi_range}')
     #---------------------------------------------------------------------------------------------------------------------------------
     # ve_v0 = 2.0
     # tol_alpha = 0.04
@@ -143,7 +142,7 @@ def main():
     elif CN > 10:
         condition = 'unstable'
         
-    print(f'The condition number of near the points alpha = {alpha1} and ve_v0 = {ve_v0} is {CN}')
+    print(f'The condition number near the points alpha = {alpha1} and ve_v0 = {ve_v0} is {CN}')
     print(f'This indicates that the function is {condition} near these points.')
 
     # Calculate the magnitude of error of the equation given the input error magnitudes
